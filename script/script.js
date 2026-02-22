@@ -1,9 +1,11 @@
 // total available jobs
 const allCards = document.getElementById("all-cards");
 const emptyState = document.getElementById("empty-state");
+const availableJobs = document.getElementById("availableJob");
 
 function allAvailableJobs() {
   totalJobs.innerText = allCards.children.length;
+  availableJobs.innerText = allCards.children.length;
 }
 allAvailableJobs();
 
@@ -20,13 +22,21 @@ function toggleStyle(id) {
 
   const selectedBtn = document.getElementById(id);
   selectedBtn.classList.add("bg-blue-500");
-  
+
   if (id === "all-jobs-btn") {
     allCards.classList.remove("hidden");
     emptyState.classList.add("hidden");
-  } 
-  else {
+  } else {
     allCards.classList.add("hidden");
     emptyState.classList.remove("hidden");
   }
+}
+
+// delete Job
+const deleteBtns = document.getElementsByClassName("delete-btn");
+for (const deleteBtn of deleteBtns) {
+  deleteBtn.addEventListener("click", function (event) {
+    event.target.parentNode.parentNode.remove();
+    allAvailableJobs();
+  });
 }

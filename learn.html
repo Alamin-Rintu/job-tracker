@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Explore the concept of event delegate</h1>
+    <ol id="item-list">
+        <li class="item">My Awsome Item -1</li>
+        <li class="item">My Awsome Item -2</li>
+        <li class="item">My Awsome Item -3</li>
+        <li class="item">My Awsome Item -4</li>
+        <li class="item">My Awsome Item -5</li>
+        <li class="item">My Awsome Item -6</li>
+    </ol>
+
+    <script>
+        const items = document.getElementsByClassName('item')
+        for(const item of items){
+            item.addEventListener('click', function(event){
+                event.target.parentNode.removeChild(event.target)
+            })
+        }
+
+    </script>
+</body>
+</html>
