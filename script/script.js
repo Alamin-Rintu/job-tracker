@@ -24,8 +24,7 @@ function allAvailableJobs() {
   if (total === 0) {
     allCards.classList.add("hidden");
     emptyState.classList.remove("hidden");
-  }
-   else {
+  } else {
     allCards.classList.remove("hidden");
     emptyState.classList.add("hidden");
   }
@@ -43,8 +42,7 @@ for (const btn of interviewBtns) {
     const badge = card.querySelector("h6");
     const previousStatus = card.getAttribute("data-status");
 
-    if (previousStatus === "interview")
-       return;
+    if (previousStatus === "interview") return;
 
     if (previousStatus === "rejected") {
       rejectedNumber--;
@@ -72,8 +70,7 @@ for (const btn of rejectedBtns) {
     const badge = card.querySelector("h6");
     const previousStatus = card.getAttribute("data-status");
 
-    if (previousStatus === "rejected")
-       return;
+    if (previousStatus === "rejected") return;
 
     if (previousStatus === "interview") {
       interviewNumber--;
@@ -91,10 +88,9 @@ for (const btn of rejectedBtns) {
   });
 }
 
-// toggleing 
+// toggleing
 
 function toggleStyle(id) {
-
   allJobsBtn.classList.remove("bg-blue-500");
   interviewJobsBtn.classList.remove("bg-blue-500");
   rejectedJobsBtn.classList.remove("bg-blue-500");
@@ -106,23 +102,17 @@ function toggleStyle(id) {
   let visibleCount = 0;
 
   for (const card of cards) {
-
     if (id === "all-jobs-btn") {
       card.classList.remove("hidden");
       visibleCount++;
-    }
-
-    else if (id === "interview-jobs-btn") {
+    } else if (id === "interview-jobs-btn") {
       if (card.getAttribute("data-status") === "interview") {
         card.classList.remove("hidden");
         visibleCount++;
-      }
-       else {
+      } else {
         card.classList.add("hidden");
       }
-    }
-
-    else if (id === "rejected-jobs-btn") {
+    } else if (id === "rejected-jobs-btn") {
       if (card.getAttribute("data-status") === "rejected") {
         card.classList.remove("hidden");
         visibleCount++;
